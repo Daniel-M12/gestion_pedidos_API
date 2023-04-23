@@ -9,7 +9,7 @@ namespace DBContext
 
 		public ProductoRepository(RestauranteContext dbcontext)
 		{
-            context = dbcontext;
+            this.context = dbcontext;
 		}
 
         public IEnumerable<Producto> getProductos()
