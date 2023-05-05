@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using DBContext;
 using DBEntity;
+using System.Web;
+using Microsoft.AspNetCore.Cors;
 
 namespace restaurante.API.Controllers
 {
 	[Route("categorias")]
-	public class CategoriaController: ControllerBase
+	
+    public class CategoriaController: ControllerBase
 	{
 		ICategoriaRepository categoriaRepository;
 

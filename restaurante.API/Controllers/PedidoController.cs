@@ -1,10 +1,12 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using DBContext;
+using Microsoft.AspNetCore.Cors;
 
 namespace restaurante.API.Controllers
 {
     [Route("pedidos")]
+    
     public class PedidoController: ControllerBase
 	{
 		IPedidoRepository pedidoRepository;

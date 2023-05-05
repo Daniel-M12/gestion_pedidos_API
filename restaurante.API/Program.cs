@@ -22,9 +22,17 @@ builder.Services.AddScoped<RestauranteContext>();
 
 //BD PostgreSQL
 //builder.Services.AddDbContext<RestauranteContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+/*var config = builder.Configuration;
+var connectionString = config.GetConnectionString("Restaurante");
+builder.Services.AddDbContext<RestauranteContext>(options => options.UseNpgsql(connectionString));*/
 builder.Services.AddNpgsql<RestauranteContext>("Host=34.151.232.17;Port=5432;Username=postgres;Password=PostgreSQL-daniel;Database=restaurante");
 
 var app = builder.Build();
+
+app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

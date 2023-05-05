@@ -1,11 +1,13 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using DBContext;
+using Microsoft.AspNetCore.Cors;
 
 namespace restaurante.API.Controllers
 {
 	[Route("productos")]
-	public class ProductoController: ControllerBase
+    [ApiController]
+    public class ProductoController: ControllerBase
 	{
 		IProductoRepository productoRepository;
 
@@ -15,6 +17,7 @@ namespace restaurante.API.Controllers
 		}
 
 		[HttpGet]
+		
 		public IActionResult getProductos()
 		{
 			return Ok(productoRepository.getProductos());
