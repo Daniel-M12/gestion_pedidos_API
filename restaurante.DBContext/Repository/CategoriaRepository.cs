@@ -17,6 +17,21 @@ namespace DBContext
         {
             return context.categorias;
         }
+
+        public string insert(Categoria categoria)
+        {
+            try
+            {
+                context.Add<Categoria>(categoria);
+                context.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                return e.Message;
+            }
+
+            return "Nueva categoría añadida";
+        }
     }
 }
 

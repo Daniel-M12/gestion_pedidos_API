@@ -18,10 +18,11 @@ builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IMesaRepository, MesaRepository>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<RestauranteContext>();
 
 //BD PostgreSQL
 //builder.Services.AddDbContext<RestauranteContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddNpgsql<RestauranteContext>("Host=localhost;Port=5433;Username=postgres;Password=postgres;Database=restaurante");
+builder.Services.AddNpgsql<RestauranteContext>("Host=34.151.232.17;Port=5432;Username=postgres;Password=PostgreSQL-daniel;Database=restaurante");
 
 var app = builder.Build();
 

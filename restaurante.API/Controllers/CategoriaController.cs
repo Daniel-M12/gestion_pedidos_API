@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using DBContext;
+using DBEntity;
 
 namespace restaurante.API.Controllers
 {
@@ -19,6 +20,12 @@ namespace restaurante.API.Controllers
         {
             return Ok(categoriaRepository.getCategorias());
         }
+
+		[HttpPost]
+		public IActionResult setCategoria([FromBody] Categoria categoria)
+		{
+			return Ok(categoriaRepository.insert(categoria));
+		}
     }
 }
 
