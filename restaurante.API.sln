@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restaurante.DBContext", "re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restaurante.DBEntity", "restaurante.DBEntity\restaurante.DBEntity.csproj", "{0D8F5AE4-2416-4AEB-BB70-73FF12E6CB85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPC.APIBusiness.API.IS", "UPC.APIBusiness.API.IS\UPC.APIBusiness.API.IS.csproj", "{A3D4686D-4ECD-431D-B9B9-B03FD78C9A99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0D8F5AE4-2416-4AEB-BB70-73FF12E6CB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D8F5AE4-2416-4AEB-BB70-73FF12E6CB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D8F5AE4-2416-4AEB-BB70-73FF12E6CB85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D4686D-4ECD-431D-B9B9-B03FD78C9A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D4686D-4ECD-431D-B9B9-B03FD78C9A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D4686D-4ECD-431D-B9B9-B03FD78C9A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D4686D-4ECD-431D-B9B9-B03FD78C9A99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
