@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using DBEntity;
+using System.Threading;
 
 
 namespace DBContext
@@ -26,8 +27,11 @@ namespace DBContext
                 producto.Property(p => p.descripcion).IsRequired(false).HasMaxLength(150);
                 producto.Property(p => p.precio).IsRequired().HasPrecision(5, 2);
                 producto.Property(p => p.imagen).IsRequired().HasMaxLength(200);
-                producto.Property(p => p.activo).IsRequired();
-
+                producto.Property(p => p.categoria).IsRequired();
+                producto.Property(p => p.atendido).IsRequired().HasDefaultValue(false);
+                producto.Property(p => p.cantidad).IsRequired().HasDefaultValue(0);
+                //producto.HasOne<Categoria>(p => p.categoria_detalle).WithMany(p => p.productos).HasForeignKey(p => p.categoria);
+                
             });
 
             modelBuilder.Entity<Categoria>(categoria =>

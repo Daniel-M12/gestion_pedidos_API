@@ -8,6 +8,10 @@ using Npgsql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
+using Swashbuckle.AspNetCore.SwaggerGen;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,6 +77,7 @@ builder.Services.AddSwaggerGen(c =>
         });
 });
 
+
 //Inyección de dependencias
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
@@ -96,6 +101,10 @@ var connectionString = config.GetConnectionString("Restaurante");
 builder.Services.AddDbContext<RestauranteContext>(options => options.UseNpgsql(connectionString));*/
 builder.Services.AddNpgsql<RestauranteContext>("Host=34.151.232.17;Port=5432;Username=postgres;Password=PostgreSQL-daniel;Database=restaurante");
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();

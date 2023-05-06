@@ -5,6 +5,7 @@ using DBEntity;
 using System.Web;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace restaurante.API.Controllers
 {
@@ -35,7 +36,14 @@ namespace restaurante.API.Controllers
         [Route("insert")]
 		public IActionResult setCategoria([FromBody] Categoria categoria)
 		{
-			return Ok(categoriaRepository.insert(categoria));
+            var identity = User.Identity as ClaimsIdentity;
+            IEnumerable<Claim> claims = identity.Claims;
+
+            var userId = claims.Where(p => p.Type == "client_codigo_usuario").FirstOrDefault()?.Value;
+            var userDoc = claims.Where(p => p.Type == "client_numero_documento").FirstOrDefault()?.Value;
+
+            //project.UsuarioCrea = int.Parse(userId);
+            return Ok(categoriaRepository.insert(categoria));
 		}
     }
 }
