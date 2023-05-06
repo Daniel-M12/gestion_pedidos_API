@@ -25,7 +25,7 @@ namespace API.Security
                 .GetDiscoveryDocumentAsync(
                  new DiscoveryDocumentRequest
                  {
-                     Address = AppSettingsProvider.config.UrlBaseIdentityServer,
+                     Address = "http://localhost:5000",//AppSettingsProvider.config.UrlBaseIdentityServer,
                      Policy = {
                         ValidateIssuerName = false,
                         ValidateEndpoints = false,
