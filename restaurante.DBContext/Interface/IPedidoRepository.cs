@@ -6,7 +6,9 @@ namespace DBContext
 {
 	public interface IPedidoRepository
 	{
-        IEnumerable<Pedido> getPedidos();
+        EntityBaseResponse getPedidos();
+
+        EntityBaseResponse insert(Pedido pedido);
     }
 }
 

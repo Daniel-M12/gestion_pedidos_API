@@ -6,7 +6,9 @@ namespace DBContext
 {
 	public interface IMesaRepository
 	{
-        IEnumerable<Mesa> getMesas();
+        EntityBaseResponse getMesas();
+
+        EntityBaseResponse insert(Mesa mesa);
     }
 }
 

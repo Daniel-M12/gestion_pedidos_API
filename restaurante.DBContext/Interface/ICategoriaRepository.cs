@@ -6,9 +6,9 @@ namespace DBContext
 {
 	public interface ICategoriaRepository
 	{
-        IEnumerable<Categoria> getCategorias();
+        EntityBaseResponse getCategorias();
 
-        string insert(Categoria categoria);
+        EntityBaseResponse insert(Categoria categoria);
     }
 }
 

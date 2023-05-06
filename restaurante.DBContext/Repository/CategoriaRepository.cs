@@ -13,24 +13,79 @@ namespace DBContext
             this.context = dbcontext;
 		}
 
-        public IEnumerable<Categoria> getCategorias()
+        public EntityBaseResponse getCategorias()
         {
-            return context.categorias;
-        }
+            var response = new EntityBaseResponse();
 
-        public string insert(Categoria categoria)
-        {
             try
             {
-                context.Add<Categoria>(categoria);
-                context.SaveChanges();
+                var categorias = context.categorias;
+                
+
+                if (categorias != null)
+                {
+                    response.isSuccess = true;
+                    response.errorCode = "0000";
+                    response.errorMessage = "";
+                    response.data = categorias;
+                }
+                else
+                {
+                    response.isSuccess = false;
+                    response.errorCode = "0000";
+                    response.errorMessage = "";
+                    response.data = null;
+                }
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return e.Message;
+                response.isSuccess = false;
+                response.errorCode = "0001";
+                response.errorMessage = e.Message;
+                response.data = null;
             }
 
-            return "Nueva categoría añadida";
+            return response;
+
+        }
+
+        public EntityBaseResponse insert(Categoria categoria)
+        {
+
+            var response = new EntityBaseResponse();
+
+            try
+            {
+                var inserted = context.Add<Categoria>(categoria);
+                context.SaveChanges();
+
+                if (inserted != null)
+                {
+                    response.isSuccess = true;
+                    response.errorCode = "0000";
+                    response.errorMessage = "";
+                    response.data = inserted;
+                }
+                else
+                {
+                    response.isSuccess = false;
+                    response.errorCode = "0000";
+                    response.errorMessage = "";
+                    response.data = null;
+                }
+
+            }
+            catch (Exception e)
+            {
+                response.isSuccess = false;
+                response.errorCode = "0001";
+                response.errorMessage = e.Message;
+                response.data = null;
+            }
+
+            return response;
+
         }
     }
 }

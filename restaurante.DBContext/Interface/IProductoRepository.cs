@@ -6,8 +6,9 @@ namespace DBContext
 {
 	public interface IProductoRepository
 	{
-        IEnumerable<Producto> getProductos();
-		
+        EntityBaseResponse getProductos();
+
+		EntityBaseResponse insert(Producto producto);
 	}
 }
 
