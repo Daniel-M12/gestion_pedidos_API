@@ -11,6 +11,8 @@ namespace DBContext
         public DbSet<Categoria> categorias { get; set; }
         public DbSet<Mesa> mesas { get; set; }
         public DbSet<Pedido> pedidos { get; set; }
+        public DbSet<EntityUser> users { get; set; }
+        
 
         public RestauranteContext(DbContextOptions<RestauranteContext> options) : base(options) { }
 
@@ -50,6 +52,16 @@ namespace DBContext
                 pedido.HasKey(p => p.id_pedido);
                 pedido.Property(p => p.fecha).IsRequired();
                 pedido.Property(p => p.atendido).IsRequired();
+            });
+
+            modelBuilder.Entity<EntityUser>(usuario =>
+            {
+                usuario.ToTable("usuario");
+                usuario.HasKey(u => u.id_usuario);
+                usuario.Property(u => u.login_usuario).IsRequired().HasMaxLength(25);
+                usuario.Property(u => u.password).IsRequired();
+                usuario.Property(u => u.rol).IsRequired().HasMaxLength(25);
+                usuario.Property(u => u.dni).IsRequired().HasMaxLength(8);
             });
         }
 

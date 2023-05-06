@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace restaurante.API.Controllers
 {
-	[Route("categorias")]
-	
+	[Route("categorias")]	
     public class CategoriaController: ControllerBase
 	{
 		ICategoriaRepository categoriaRepository;

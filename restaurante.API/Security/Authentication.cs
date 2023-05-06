@@ -46,7 +46,7 @@ namespace API.Security
                     Scope = "email",
                     Parameters =
                     {
-                        //{ "client_numero_documento", $"{numeroDocumento}"},
+                        { "client_numero_documento", $"{numeroDocumento}"},
                         { "client_codigo_usuario", $"{codigoUsuario}" }
                     }
                 });
